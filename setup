@@ -1,7 +1,0 @@
-sudo apt update
-sudo apt install nginx -y
-
-git clone https://github.com/PocketDeck/pd-core3.git
-git clone https://github.com/PocketDeck/pd-web.git
-
-cd pd-core3 && go build ./cmd/server
