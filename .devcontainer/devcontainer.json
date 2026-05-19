@@ -1,0 +1,7 @@
+{
+  "name": "Pocket Deck",
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+  
+  // This hook instructs GitHub to auto-execute your terminal commands EVERY TIME the machine boots up
+  "postStartCommand": "cd pd-infra && scripts/setup.sh && scripts/start.sh"
+}
