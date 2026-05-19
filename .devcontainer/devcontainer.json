@@ -2,6 +2,18 @@
   "name": "Pocket Deck",
   "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
   
-  // This hook instructs GitHub to auto-execute your terminal commands EVERY TIME the machine boots up
+  // 1. Tell GitHub to explicitly forward the Nginx port
+  "forwardPorts": [8081],
+
+  // 2. Force ONLY Nginx to be Public permanently
+  "portsAttributes": {
+    "8081": {
+      "label": "Nginx Frontend Reverse Proxy",
+      "onAutoForward": "openBrowser",
+      "visibility": "public"
+    }
+  },
+
+  // 3. Your automation script that triggers on boot
   "postStartCommand": "rm -rf pd-infra && git clone https://github.com/PocketDeck/pd-infra.git && cd pd-infra && scripts/setup.sh && scripts/start.sh"
 }
